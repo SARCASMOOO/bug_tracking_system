@@ -44,9 +44,6 @@ import Rtl from "./views/pages/Rtl.js";
 import Lock from "./views/pages/Lock.js";
 
 import {RouteModel} from './models/routesModel';
-// TODO: I am not sure which type this should be.
-type ReactComponentType = JSX.Element | JSX.ElementClass;
-
 
 const routes: RouteModel[] = [
   {
