@@ -20,7 +20,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import AuthLayout from "./layouts/Auth/Auth.js";
-import AdminLayout from "./layouts/Admin/Admin.js";
+import AdminLayout from "./layouts/Admin/Admin";
 // import RTLLayout from "./layouts/RTL/RTL.js";
 import RTLLayout from "./layouts/Template/Template.js";
 

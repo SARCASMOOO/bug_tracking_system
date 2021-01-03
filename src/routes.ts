@@ -43,35 +43,12 @@ import Login from "./views/pages/Login.js";
 import Rtl from "./views/pages/Rtl.js";
 import Lock from "./views/pages/Lock.js";
 
+import {RouteModel} from './models/routesModel';
 // TODO: I am not sure which type this should be.
 type ReactComponentType = JSX.Element | JSX.ElementClass;
 
-interface Route {
-  path?: string;
-  name: string;
-  rtlName: string;
-  icon: string;
-  component?: any;
-  layout?: string;
-  collapse?: boolean,
-  state?: string,
-  views?: View[];
-}
 
-interface View {
-    path?: string;
-    name: string;
-    rtlName: string;
-    mini: string;
-    rtlMini: string;
-    component?: any;
-    layout?: string;
-    collapse?: boolean;
-    state?: string;
-    views?: View[]; 
-}
-
-const routes: Route[] = [
+const routes: RouteModel[] = [
   {
     path: "/dashboard",
     name: "Dashboard",

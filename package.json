@@ -7,6 +7,7 @@
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.16",
     "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
     "chart.js": "2.9.3",
     "classnames": "2.2.6",
     "history": "4.10.1",
@@ -61,6 +62,6 @@
     "eslint-plugin-flowtype": "3.13.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
-    "typescript": "^3.8.2"
+    "typescript": "^3.9.7"
   }
 }
