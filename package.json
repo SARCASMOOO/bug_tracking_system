@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://demos.creative-tim.com/black-dashboard-pro-react/#/admin/dashboard",
   "dependencies": {
+    "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.16",
     "@types/react-dom": "^17.0.0",
@@ -59,6 +60,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/reactstrap": "^8.7.2",
     "eslint-plugin-flowtype": "3.13.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",

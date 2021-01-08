@@ -26,7 +26,7 @@ import Sidebar from "../../components/Sidebar/Sidebar.js";
 import Router from "../../components/Router/Router";
 import NotificationWrapper from '../../components/Notification/Notification';
 import NavbarMinimizeButton from '../../components/NavbarMinimizeButton/NavbarMinimizeButton';
-import Container from '../../components/Container/Container';
+import Container from '../../components/UI/Container/Container';
 
 // Misc
 import routes from "../../routes";
