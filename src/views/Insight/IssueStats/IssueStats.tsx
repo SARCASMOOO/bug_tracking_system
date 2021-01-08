@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Row, Col, Card, CardTitle, CardBody, CardFooter } from "reactstrap";
-import icons from '../../../variables/icons';
+import {Icons} from '../../../models/iconsModel';
 
 interface Props {
     title: string;
     quantitiy: number; 
     description: string;
-    iconName: string;
+    iconName: Icons;
 }
 
 const IssueStats = ({title, quantitiy, description, iconName}: Props) => {
@@ -17,7 +17,7 @@ const IssueStats = ({title, quantitiy, description, iconName}: Props) => {
           <CardBody>
             <Row>
               <Col xs="5">
-                <div className="info-icon text-center icon-warning">
+                <div className="info-icon text-center icon-success">
                   <i className={"tim-icons " + iconName} />
                 </div>
               </Col>

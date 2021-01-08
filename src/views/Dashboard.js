@@ -22,7 +22,6 @@ import { Line, Bar } from "react-chartjs-2";
 // react plugin for creating vector maps
 import { VectorMap } from "react-jvectormap";
 
-// reactstrap components
 import {
   Button,
   ButtonGroup,
@@ -165,6 +164,8 @@ class Dashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+
+
             <Col lg="3" md="6">
               <Card className="card-stats">
                 <CardBody>
@@ -190,6 +191,9 @@ class Dashboard extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
+
+
+
             <Col lg="3" md="6">
               <Card className="card-stats">
                 <CardBody>
@@ -215,6 +219,9 @@ class Dashboard extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
+
+
+
             <Col lg="3" md="6">
               <Card className="card-stats">
                 <CardBody>
@@ -240,6 +247,9 @@ class Dashboard extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
+
+
+
             <Col lg="3" md="6">
               <Card className="card-stats">
                 <CardBody>
@@ -266,6 +276,9 @@ class Dashboard extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
+
+
+
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
@@ -304,6 +317,7 @@ class Dashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
