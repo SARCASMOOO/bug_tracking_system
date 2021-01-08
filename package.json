@@ -60,6 +60,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/firebase": "^3.2.1",
     "@types/reactstrap": "^8.7.2",
     "eslint-plugin-flowtype": "3.13.0",
     "gulp": "4.0.2",
