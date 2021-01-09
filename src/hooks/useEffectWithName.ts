@@ -1,3 +1,4 @@
+
 import {
     useEffect,
     EffectCallback,
@@ -6,20 +7,17 @@ import {
     FunctionComponent
 } from "react";
 
+export const useComponentDidMount = (cb: EffectCallback) => useEffect(cb, []);
 
-export const useComponentDidMount = (cb: EffectCallback) => {
-    useEffect(cb, []);
-};
+export const useComponentDidUpdate = (cb: EffectCallback) => useEffect(cb);
 
-export const useComponentDidUpdate = (cb: EffectCallback) => {
-    useEffect(cb);
-};
+type Props<P> = Readonly<PropsWithChildren<P>>;
 
 export interface IuseShouldComponentUpdate<P> {
     Component: FunctionComponent<P>;
     condition: (
-        prevProps: Readonly<PropsWithChildren<P>>,
-        nextProps: Readonly<PropsWithChildren<P>>
+        prevProps: Props<P>,
+        nextProps: Props<P>
     ) => boolean;
 }
 
