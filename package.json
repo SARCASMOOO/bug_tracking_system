@@ -9,6 +9,7 @@
     "@types/node": "^14.14.16",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
+    "@types/recompose": "^0.30.7",
     "chart.js": "2.9.3",
     "classnames": "2.2.6",
     "history": "4.10.1",
@@ -33,7 +34,8 @@
     "react-select": "3.0.8",
     "react-table": "6.11.5",
     "react-tagsinput": "3.19.0",
-    "reactstrap": "8.4.1"
+    "reactstrap": "8.4.1",
+    "recompose": "^0.30.0"
   },
   "optionalDependencies": {
     "@types/googlemaps": "3.39.3",

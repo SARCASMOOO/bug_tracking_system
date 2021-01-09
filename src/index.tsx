@@ -29,7 +29,7 @@ import "./assets/scss/black-dashboard-pro-react.scss?v=1.1.0";
 
 const hist = createBrowserHistory();
 
-// TODO: Move the statis folder into black-dashboard-pro-ract/static with a script.
+// TODO: Move the static folder into black-dashboard-pro-ract/static with a script.
 ReactDOM.render(
   <Router history={hist}>
     <Switch>

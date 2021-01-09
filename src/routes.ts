@@ -20,6 +20,12 @@ import Insight from './views/Insight/Insight';
 
 import {RouteModel} from './models/routesModel';
 
+export enum routePaths {
+  dashboard = '/admin/dashboard',
+  insight = '/admin/insight',
+  issues = '/admin/issues',
+}
+
 const routes: RouteModel[] = [
   {
     path: "/dashboard",
@@ -48,3 +54,4 @@ const routes: RouteModel[] = [
 ];
 
 export default routes;
+

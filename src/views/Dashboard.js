@@ -104,11 +104,13 @@ class Dashboard extends React.Component {
                           className={classNames("btn-simple", {
                             active: this.state.bigChartData === "data1"
                           })}
-                          onClick={() => this.setBgChartData("data1")}
+                          onClick={() => {
+                            return this.setBgChartData("data1");
+                          }}
                         >
                           <input defaultChecked name="options" type="radio" />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Accounts
+                            Accounts THIS IS A TEST
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-single-02" />
