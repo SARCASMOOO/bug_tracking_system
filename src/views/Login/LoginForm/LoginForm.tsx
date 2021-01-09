@@ -15,13 +15,20 @@ import {
     InputGroup,
 } from "reactstrap";
 
-interface State {
-    emailFocus?: boolean;
-    passFocus?: boolean;
+
+
+// Get started on click
+// Create account on click
+// Need help on click
+// Email focus
+// Pass focus
+interface Props {
+    emailFocus: boolean;
+    passFocus: boolean;
+    onClickLogin: () => void;
 }
 
 const LoginForm = () => {
-    const [focus, setFocus] = useState<State>({ emailFocus: false, passFocus: false });
 
     return (
         <Form className="form">
@@ -47,13 +54,13 @@ const LoginForm = () => {
                         <Input
                             placeholder="Email"
                             type="text"
-                            onFocus={(e: any) => setFocus({ emailFocus: true })}
-                            onBlur={(e: any) => setFocus({ emailFocus: false })}
+                            // onFocus={(e: any) => setFocus({ emailFocus: true })}
+                            // onBlur={(e: any) => setFocus({ emailFocus: false })}
                         />
                     </InputGroup>
                     <InputGroup
                         className={classnames({
-                            "input-group-focus": focus.passFocus
+                            "input-group-focus": true
                         })}
                     >
                         <InputGroupAddon addonType="prepend">
@@ -64,8 +71,8 @@ const LoginForm = () => {
                         <Input
                             placeholder="Password"
                             type="text"
-                            onFocus={(e: any) => setFocus({ passFocus: true })}
-                            onBlur={(e: any) => setFocus({ passFocus: false })}
+                            // onFocus={(e: any) => setFocus({ passFocus: true })}
+                            // onBlur={(e: any) => setFocus({ passFocus: false })}
                         />
                     </InputGroup>
                 </CardBody>
