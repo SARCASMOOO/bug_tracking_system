@@ -26,6 +26,11 @@ class Request {
     user = (uid: string) => this.firebase.user(uid);
 
     users = () => this.firebase.user('users');
+
+    createListener(cb: (authUser: any) => void) {
+        const listener = this.firebase.getAuth().onAuthStateChanged(cb);
+        return listener;
+    }
 }
 
 export default Request;

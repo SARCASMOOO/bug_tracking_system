@@ -53,5 +53,4 @@
 // };
 
 // export default withAuthorization;
-
 export default {};

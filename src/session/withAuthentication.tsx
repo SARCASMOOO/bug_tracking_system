@@ -1,56 +1,49 @@
-// import React from 'react';
+import React from 'react';
 
-// import AuthUserContext from './context';
-// import Firebase, { withFirebase } from '../Firebase';
+import AuthUserContext from './context';
+import Requests, { withRequests } from '../requests';
 
-// interface Props {
-//     firebase: Firebase;
-// }
+interface Props {
+    requests: Requests;
+}
 
-// interface State {
-//     authUser: any;
-//     listener?: any;
-// }
+interface State {
+    authUser: any;
+    listener?: any;
+}
 
-// const withAuthentication = (Component: React.ElementType) => {
-//     class WithAuthentication extends React.Component<Props, State> {
-//         constructor(props: Props) {
-//             super(props);
+const withAuthentication = (Component: React.ElementType) => {
+    class WithAuthentication extends React.Component<Props, State> {
+        constructor(props: Props) {
+            super(props);
+            this.state = { authUser: undefined };
+        }
 
-//             this.state = {
-//                 authUser: undefined,
-//             };
-//         }
+        componentDidMount() {
+            const cb = (authUser: any) => {
+                authUser = authUser ? authUser : null;
+                this.setState({ authUser });
+            }
 
-//         componentDidMount() {
-//             const listener = this.props.firebase.auth.onAuthStateChanged(
-//                 (authUser:any) => {
-//                     authUser
-//                         ? this.setState({ authUser })
-//                         : this.setState({ authUser: null });
-//                 },
-//             );
+            const listener = this.props.requests.createListener(cb);
+            this.setState({ listener: listener });
+        }
 
-//             this.setState({listener: listener});
-//         }
+        componentWillUnmount() {
+            const listener = this.state.listener;
+            if (listener) listener();
+        }
 
-//         componentWillUnmount() {
-//             const listener = this.state.listener;
-//             if (listener) listener();
-//         }
+        render() {
+            return (
+                <AuthUserContext.Provider value={this.state.authUser}>
+                    <Component {...this.props} />
+                </AuthUserContext.Provider>
+            );
+        }
+    }
 
-//         render() {
-//             return (
-//                 <AuthUserContext.Provider value={this.state.authUser}>
-//                     <Component {...this.props} />
-//                 </AuthUserContext.Provider>
-//             );
-//         }
-//     }
+    return withRequests(WithAuthentication);
+};
 
-//     return withFirebase(WithAuthentication);
-// };
-
-// export default withAuthentication;
-
-export default {};
+export default withAuthentication;

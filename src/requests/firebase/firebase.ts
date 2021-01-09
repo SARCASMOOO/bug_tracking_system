@@ -44,6 +44,8 @@ class Firebase {
     users = () => this.db.ref('users');
 
     getCurrentUser = () => this.auth.currentUser;
+
+    getAuth = () => this.auth;
 }
 
 export default Firebase;
