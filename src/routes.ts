@@ -17,7 +17,7 @@
 
 import Dashboard from "./views/Dashboard.js";
 import Insight from './views/Insight/Insight';
-import Login from './views/Login';
+import Login from './views/Login/Login';
 
 import {RouteModel} from './models/routesModel';
 
