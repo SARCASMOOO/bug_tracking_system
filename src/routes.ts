@@ -17,6 +17,7 @@
 
 import Dashboard from "./views/Dashboard.js";
 import Insight from './views/Insight/Insight';
+import Login from './views/Login';
 
 import {RouteModel} from './models/routesModel';
 
@@ -24,6 +25,7 @@ export enum routePaths {
   dashboard = '/admin/dashboard',
   insight = '/admin/insight',
   issues = '/admin/issues',
+  signIn = '/admin/signIn'
 }
 
 const routes: RouteModel[] = [
@@ -49,6 +51,14 @@ const routes: RouteModel[] = [
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: Insight,
+    layout: "/admin"
+  },
+  {
+    path: "/signIn",
+    name: "Sign In",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-chart-pie-36",
+    component: Login,
     layout: "/admin"
   }
 ];
