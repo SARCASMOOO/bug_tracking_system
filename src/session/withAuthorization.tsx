@@ -7,7 +7,7 @@ import * as ROUTES from '../routes';
 
 interface Props {
     requests: Requests;
-    history: any;
+    history: History;
 }
 
 interface State {
@@ -19,7 +19,7 @@ const withAuthorization = (condition: any) => (Component: React.ElementType) => 
         componentDidMount() {
             const cb = (authUser: any) => {
                 if (!condition(authUser)) {
-                    this.props.history.push(ROUTES.routePaths.signIn);
+                    history.replaceState('Dashboard', 'Dashboard', ROUTES.routePaths.signIn);
                 }
             }
 

@@ -22,7 +22,6 @@ const Register = () => {
     }
   )
 
-
   return (
     <div className="content">
       <Container>

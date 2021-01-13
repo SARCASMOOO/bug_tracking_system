@@ -21,13 +21,13 @@ const hist = createBrowserHistory();
 // TODO: Move the static folder into black-dashboard-pro-ract/static with a script.
 ReactDOM.render(
   <RequestsContext.Provider value={new Requests()}>
-  <Router history={hist}>
-    <Switch>
-      <Route path="/auth" render={props => <AuthLayout {...props} />} />
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-  </Router>
+    <Router history={hist}>
+        <Switch>
+          <Route path="/auth" render={props => <AuthLayout {...props} />} />
+          <Route path="/admin" render={props => <AdminLayout {...props} />} />
+          <Redirect from="/" to="/admin/dashboard" />
+        </Switch>
+    </Router>
   </RequestsContext.Provider>,
   document.getElementById("root")
 );

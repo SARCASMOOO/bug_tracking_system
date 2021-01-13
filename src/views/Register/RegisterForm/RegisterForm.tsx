@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classnames from "classnames";
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
 
 import {
     Button,
@@ -19,6 +21,9 @@ import {
     Col
 } from "reactstrap";
 
+import Requests, { withRequests } from '../../../requests';
+import { routePaths } from '../../../routes';
+
 interface Props {
     nameFocus: boolean;
     setNameFocus: (isFocus: boolean) => void;
@@ -26,9 +31,50 @@ interface Props {
     setEmailFocus: (isFocus: boolean) => void;
     passFocus: boolean;
     setPassFocus: (isFocus: boolean) => void;
+    requests: Requests;
+    history: any;
 }
 
-const RegisterForm = ({ nameFocus, setNameFocus, emailFocus, setEmailFocus, passFocus, setPassFocus }: Props) => {
+interface State {
+    username?: string;
+    email?: string;
+    passwordOne?: string;
+    history: any;
+}
+
+const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailFocus, passFocus, setPassFocus, history }: Props) => {
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [passwordOne, setPasswordOne] = useState('');
+    const [error, setError] = useState<null | Error>(null);
+    const [events, setEvents] = useState<any>({});
+
+    const setInitialState = () => {
+        setUsername('');
+        setEmail('');
+        setPasswordOne('');
+    }
+
+    const onSubmit = (event: any) => {
+        requests.doCreateUserWithEmailAndPassword(email, passwordOne)
+            .then((authUser: any) =>
+                requests.user(authUser.user.uid).set({ username, email })
+            )
+            .then((authUser: any) => {
+                history.push(routePaths.dashboard);
+                setInitialState();
+            })
+            .catch((error: Error) => {
+                setError(error);
+            });
+
+        event.preventDefault();
+    };
+
+    const onChange = (event: any) => {
+        setEvents({ [event.target.name]: event.target.value });
+    };
+
     return (
         <Col className="mr-auto" md="7">
             <Card className="card-register card-white">
@@ -120,4 +166,8 @@ const RegisterForm = ({ nameFocus, setNameFocus, emailFocus, setEmailFocus, pass
     );
 }
 
-export default RegisterForm;
+
+export default compose<Props, any>(
+    withRouter,
+    withRequests,
+)(RegisterForm);
