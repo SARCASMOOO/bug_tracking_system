@@ -15,14 +15,12 @@ import {
     FormGroup,
     Form,
     Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Col
 } from "reactstrap";
 
 import Requests, { withRequests } from '../../../requests';
 import { routePaths } from '../../../routes';
+import RegisterInputGroup from './RegisterInputGroup/RegisterInputGroup';
 
 interface Props {
     nameFocus: boolean;
@@ -35,11 +33,12 @@ interface Props {
     history: any;
 }
 
-interface State {
-    username?: string;
-    email?: string;
-    passwordOne?: string;
-    history: any;
+interface IconProps {
+    iconName: string;
+}
+
+const Icon = ({ iconName }: IconProps) => {
+    return (<i className={"tim-icons " + iconName} />);
 }
 
 const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailFocus, passFocus, setPassFocus, history }: Props) => {
@@ -64,9 +63,7 @@ const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailF
                 history.push(routePaths.dashboard);
                 setInitialState();
             })
-            .catch((error: Error) => {
-                setError(error);
-            });
+            .catch((error: Error) => setError(error));
 
         event.preventDefault();
     };
@@ -74,6 +71,24 @@ const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailF
     const onChange = (event: any) => {
         setEvents({ [event.target.name]: event.target.value });
     };
+
+    const formFields = [
+        {
+            placeholder: "Full Name",
+            Icon: Icon,
+            iconName: 'icon-single-02'
+        },
+        {
+            placeholder: "Full Name",
+            Icon: Icon,
+            iconName: 'icon-email-85'
+        },
+        {
+            placeholder: "Full Name",
+            Icon: Icon,
+            iconName: 'icon-lock-circle'
+        }
+    ];
 
     return (
         <Col className="mr-auto" md="7">
@@ -87,57 +102,16 @@ const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailF
                 </CardHeader>
                 <CardBody>
                     <Form className="form">
-                        <InputGroup
-                            className={classnames({
-                                "input-group-focus": nameFocus
-                            })}
-                        >
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className="tim-icons icon-single-02" />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Full Name"
-                                type="text"
-                                onFocus={(e: Event) => setNameFocus(true)}
-                                onBlur={(e: Event) => setNameFocus(false)}
-                            />
-                        </InputGroup>
-                        <InputGroup
-                            className={classnames({
-                                "input-group-focus": emailFocus
-                            })}
-                        >
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className="tim-icons icon-email-85" />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Email"
-                                type="text"
-                                onFocus={(e: Event) => setEmailFocus(true)}
-                                onBlur={(e: Event) => setEmailFocus(false)}
-                            />
-                        </InputGroup>
-                        <InputGroup
-                            className={classnames({
-                                "input-group-focus": passFocus
-                            })}
-                        >
-                            <InputGroupAddon addonType="prepend">
-                                <InputGroupText>
-                                    <i className="tim-icons icon-lock-circle" />
-                                </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                                placeholder="Password"
-                                type="text"
-                                onFocus={(e: Event) => setPassFocus(true)}
-                                onBlur={(e: Event) => setPassFocus(false)}
-                            />
-                        </InputGroup>
+                        {
+                            formFields.map(({ placeholder, Icon, iconName }) =>
+                                <RegisterInputGroup
+                                    placeholder={placeholder}
+                                    type='text'
+                                >
+                                    <Icon iconName={iconName} />
+                                </RegisterInputGroup>
+                            )
+                        }
                         <FormGroup check className="text-left">
                             <Label check>
                                 <Input type="checkbox" />
@@ -150,6 +124,7 @@ const RegisterForm = ({ requests, nameFocus, setNameFocus, emailFocus, setEmailF
                         </FormGroup>
                     </Form>
                 </CardBody>
+
                 <CardFooter>
                     <Button
                         className="btn-round"
