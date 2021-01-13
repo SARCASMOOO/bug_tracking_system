@@ -4,13 +4,26 @@ import React, { Children } from 'react';
 interface Props {
     description: string;
     title: string;
-    children: JSX.Element;
+    classes?: string;
+    iconType: string;
+    iconName: string;
 }
 
-const SellingPoint = ({ description, title, children }: Props) => {
+interface IconProps {
+    iconType: string;
+    iconName: string;
+}
+
+const Icon = ({ iconType = "", iconName = "" }: IconProps) => (
+    <div className={"icon " + iconType}>
+        <i className={"tim-icons " + iconName} />
+    </div>
+);
+
+const SellingPoint = ({ description, title, iconType, iconName, classes = '' }: Props) => {
     return (
-        <div className="info-area info-horizontal mt-5">
-            {children}
+        <div className={"info-area info-horizontal " + classes}>
+            <Icon iconType={iconType} iconName={iconName} />
             <div className="description">
                 <h3 className="info-title">{title}</h3>
                 <p className="description">
