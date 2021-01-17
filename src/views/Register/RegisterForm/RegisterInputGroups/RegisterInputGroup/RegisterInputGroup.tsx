@@ -1,4 +1,4 @@
-import React, { ComponentType, useState } from 'react';
+import React, { useState } from 'react';
 import classnames from "classnames";
 
 import {
@@ -12,10 +12,28 @@ interface Props {
     children: JSX.Element;
     placeholder: string;
     type: string;
+    validCondition: (inputText: string) => boolean;
 }
 
-const RegisterInputGroup = ({children, placeholder, type="text"}: Props) => {
+type onChangeEvent = React.FormEvent<HTMLInputElement>;
+
+const RegisterInputGroup = ({ children, placeholder, type = "text", validCondition }: Props) => {
     const [focus, setFocus] = useState(false);
+    const [inputText, setInputText] = useState('');
+
+    // { registerEmailState: "has-danger" }
+    const onSubmit = () => {
+        // if (error) {
+        //     console.log('Error in form');
+        // } else {
+        //     console.log('No error');
+        // }
+    };
+
+    const onChange = ((e: onChangeEvent) => {
+        setInputText(e.currentTarget.value);
+        // setError(validCondition(inputText));
+    });
 
     return (
         <InputGroup className={classnames({ "input-group-focus": focus })}>
@@ -29,6 +47,8 @@ const RegisterInputGroup = ({children, placeholder, type="text"}: Props) => {
                 type={type}
                 onFocus={(e: Event) => setFocus(true)}
                 onBlur={(e: Event) => setFocus(false)}
+                onChange={onChange}
+                onSubmit={onSubmit}
             />
         </InputGroup>
     );

@@ -29,7 +29,6 @@ interface Props {
 }
 
 const LoginForm = () => {
-
     return (
         <Form className="form">
             <Card className="card-login card-white">

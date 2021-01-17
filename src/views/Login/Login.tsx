@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Col } from "reactstrap";
 import LoginForm from './LoginForm/LoginForm';
-import { useComponentDidMount, useComponentWillUnmount } from '../../hooks/useEffectWithName';
+import { useComponentDidMount, useComponentWillUnmount } from '../../common/useEffectWithName';
 
 interface State {
   emailFocus?: boolean;
@@ -9,20 +9,15 @@ interface State {
 }
 
 const Login = () => {
-  const [focus, setFocus] = useState<State>({ emailFocus: false, passFocus: false });
-
   useComponentDidMount(() => {
     document.body.classList.toggle("login-page");
     console.log('Component mounted.');
-
   });
 
   useComponentWillUnmount(() => {
     document.body.classList.toggle("login-page");
     console.log('Component will unmount');
-
   });
-
 
   return (
     <div className="content">

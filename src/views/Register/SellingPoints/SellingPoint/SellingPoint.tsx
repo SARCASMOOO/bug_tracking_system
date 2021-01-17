@@ -1,5 +1,4 @@
-import { string } from 'prop-types';
-import React, { Children } from 'react';
+import React from 'react';
 
 interface Props {
     description: string;

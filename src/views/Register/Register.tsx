@@ -3,7 +3,7 @@ import { Container, Row } from "reactstrap";
 
 import SellingPoints from './SellingPoints/SellingPoints';
 import RegisterForm from './RegisterForm/RegisterForm';
-import { useComponentDidMount, useComponentWillUnmount } from '../../hooks/useEffectWithName';
+import { useComponentDidMount, useComponentWillUnmount } from '../../common/useEffectWithName';
 
 const Register = () => {
   const [nameFocus, setNameFocus] = useState(false);
